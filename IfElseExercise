@@ -1,0 +1,33 @@
+import javax.swing.JOptionPane;
+
+
+public class IfElseExercise {
+	Public static void main(String[] args) {
+	
+	String numPeople = JOptionPane.showInputDialog("Enter the number of people");
+	Short shortnumPeople = Short.parseShort(numPeople);
+	
+	int groupSize = 0;
+	int teamSize;
+	
+	if(shortnumPeople > 10){
+		groupSize = shortnumPeople/2;
+	} else if (3<shortnumPeople && shortnumPeople <= 10){
+		groupSize = shortnumPeople/3;
+	} else{
+		System.out.println("The number of people has to be at least 3.");
+	}
+	
+	String numPlayers = JOptionPane.showInputDialog("Enter the number of players.");
+	Short shortnumPlayers = Short.parseShort(numPlayers);
+	
+	if(11 < shortnumPlayers && shortnumPlayers < 55){
+		teamSize = shortnumPlayers/11;
+	}else{
+		teamSize = 1;
+	}
+	
+	System.out.println("The number of people is: " + numPeople);
+	System.out.println("The group size is: " + groupSize);
+	System.out.println("The number of players is: " + numPlayers);			      System.out.println("The number of teams is: " + teamSize);																}																														}
+
