@@ -1,0 +1,38 @@
+import javax.swing.JOptionPane;
+	
+	public class MonthProject {
+	
+		public enum Monthnum {January, February, March, April, May, June, July, August, September, October, November, December}
+		
+		public static void main(String[] args) {
+		Monthnum[] choices = {Monthnum.January, Monthnum.February, Monthnum.March, Monthnum.April, Monthnum.May, Monthnum.June, Monthnum.July, Monthnum.August, Monthnum.September, Monthnum.October, Monthnum.November, Monthnum.December };
+		while (true){ 
+		Monthnum Input = (Monthnum) JOptionPane.showInputDialog(null, "Select a Month.", "Month: ", JOptionPane.INFORMATION_MESSAGE,null, choices, choices[11]);
+		switch (Input) {
+		case December:
+		case January:
+		case February:
+			System.out.println("Do you want to build a snowman?");
+			break;
+		case March:
+		case April:
+		case May:
+			System.out.println("Happy Spring days!");
+			break;
+		case June:
+		case July:
+		case August:
+			System.out.println("It's a summer time.");
+			break;
+		case September:
+		case October:
+		case November:
+			System.out.println("Welcome to the foliage season!");
+			break;
+		
+		}
+		
+	}
+		
+     }
+}
