@@ -1,0 +1,162 @@
+import javax.swing.JOptionPane;
+import java.util.Scanner;
+
+public class Assignment3 {
+
+	public enum AccountType {Administrator, Student, Staff}
+	public static void main(String[] args){
+	
+	AccountType[] choices = { AccountType.Administrator, AccountType.Student, AccountType.Staff}	
+	
+	//declares all of my variables
+	
+	String username = ("Joe632");
+	String username2 = ("Bob123");
+	String username3 = ("Betty4");
+	String password = ("password1");
+	String password2 = ("password2");
+	String password3 = ("632");
+	
+	// x is going to be used to determine which account type
+	
+	int x = 0;
+	String Admin = ("Administrator");
+	String Student = ("Student");
+	String Staff = ("Staff");
+	String AccountType;
+	
+	//counter 2 is used to loop the account type question
+	
+	int counter2 = 1;
+	
+	//counter is used to loop the log in process     
+	
+	int counter = 0;
+	String usernameEntry;
+	String passwordEntry;
+	
+	usernameEntry = JOptionPane.showInputDialog("Time to sign in. Please enter your username.");
+	
+	while (counter<3){
+	
+		switch (usernameEntry){
+		case "Joe632":
+		passwordEntry = JOptionPane.showInputDialog("Please enter your password.");
+		//if username is not found print and add one to the counter
+		
+		if(!passwordEntry.equals (password)){
+		System.out.println("Sorry that password is incorrect.");
+		counter++;
+	//if username is found print and cancle the loop the x is to assign the log in for joe632 to admin
+	}else {
+		System.out.println("Welcome " + username);
+		counter = 10;
+		x =1;
+		
+	}
+	break;
+	// I then copy the code for the case above for the other two usernames, passwords and accounttypes
+	
+	case "Bob123":
+		passwordEntry = JOptionPane.showInputDialog("Please enter your password.");
+		if(!passwordEntry.equals (password2)){
+			System.out.println("Sorry that password is incorrect.");
+			counter++;
+		}else {
+			System.out.println("Welcome " + username2);
+			counter = 10;
+			x = 2;
+			
+		}
+	break;
+	case "Betty4":
+		passwordEntry = JOptionPane.showInputDialog("Please enter your password.");
+		if(!passwordEntry.equals (password3)){
+			System.out.println("Sorry that password is incorrect.");
+			counter++;
+		}else {
+			System.out.println("Welcome " + username3);
+			counter = 10;
+			x = 3;
+		break;
+		}
+		
+		//if the user fails to input a correct username it prompts them to input a new one and increases the counter
+		
+		default:
+		counter++;
+		usernameEntry = JOptionPane.showInputDialog("Invalid username. Please enter your username.");
+		counter++;
+	break;
+	}
+	}
+	while (counter2 == 1){
+	// whenever a user signs in correctly it assigns the counter to 10 to break the initial loop of asking for username and password and sets them up for the second loop
+	if (counter!=10){
+	// if they failed to log in the counter never reaches 10 and the program tells them to contact an admin
+		System.out.println("Contact an Administrator");
+		break;
+		}
+	//this is checking for the account type which was assigned by x at all log in points   
+	// if the account type does not agree with what was chosen then it repeats until it is correct if it is correct it welcomes the user
+       
+       else if (x == 1){
+       		while (counter2 == 1){
+		AccountType Input = (AccountType) JOptionPane.showInputDialog(null, "What account type do you have?", "Account type: ", JOptionPane.INFORMATION_MESSAGE,null, choices, choices[2]);
+		switch (Input){
+		case Administrator:
+			System.out.println("Welcome Admin! You can update and read file.");
+			counter2 = 10;
+			break;
+		default:
+			System.out.println("Wrong answer");
+			counter2 = 1;
+			
+			}
+			
+		}
+		
+		}
+		
+	else if (x == 2){
+		while (counter2 == 1){
+		AccountType Input = (AccountType) JOptionPane.showInputDialog(null, "What account type do you have?", "Account type: ", JOptionPane.INFORMATION_MESSAGE,null, choices, choices[2]);
+		switch (Input){
+		case Student:
+			System.out.println("Welcome Student! You can only read file.");
+			counter2 = 10;
+			break;
+		default:
+			System.out.println("Wrong answer");
+			counter2 = 1;
+			
+			}
+			
+		}
+		
+		}
+		
+		else if (x == 3){
+			while (counter2 == 1){
+			AccountType Input = (AccountType) JOptionPane.showInputDialog(null, "What account type do you have?", "Account type: ", JOptionPane.INFORMATION_MESSAGE,null, choices, choices[2]);
+			switch (Input){
+			case Staff:
+				System.out.println("Welcome Staff! You can update, read, add, delete file.");
+				counter2 = 10;
+				break;
+			default:
+				System.out.println("Wrong answer");
+				counter2 = 1;
+				}
+				
+			
+			
+			} 
+			
+			}
+			
+			
+			
+		}
+		}
+		}
